@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    //menu
+
     //inicializar timer
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     //current date y hora
     @State var currentDate: Date = Date()
     var dateFormatter: DateFormatter{
         let formatter = DateFormatter()
-       // formatter.dateStyle = .long
+        formatter.dateStyle = .long
         formatter.timeStyle = .short
         return formatter
     }
@@ -24,15 +26,20 @@ struct MainView: View {
             VStack{
                 
                 HStack{
+                    VStack{
                     Image(systemName: "clock.fill")
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        
+                        .padding()
                     Text(dateFormatter.string(from:currentDate))
                         .font(.system(size: 20, weight: .semibold, design: .rounded))
                         .foregroundColor(.white)
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)
                         .padding(.top)
+                    }
+                    VStack{
+                        //temperatura
+                    }
                 }
                 
                 .onReceive(timer, perform: { value in
@@ -72,7 +79,7 @@ struct MainView: View {
                                 .frame(width: 150, height: 100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                 .padding()
                                 .foregroundColor(.white)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.blue]), startPoint: .top, endPoint: .bottom))
+                                .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue]), startPoint: .top, endPoint: .bottom))
                                 .cornerRadius(10)
                             }
                             Button(action:{
@@ -117,10 +124,10 @@ struct MainView: View {
                                 //TODO ACTION
                             }){
                                 VStack{
-                                   Image("phone")
+                                   Image("radio")
                                        .resizable()
                                        .aspectRatio(contentMode:.fit)
-                                   Text("Teléfono")
+                                   Text("radio")
                                    
                                    
                                }
@@ -138,8 +145,18 @@ struct MainView: View {
             .navigationTitle("MY MEDIA STATION")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                leading: Image(systemName: "menubar.rectangle"),
-                trailing: Image(systemName: "phone")
+                leading: NavigationLink(
+                    destination: SettingsScreen(),
+                    label: {
+                        Image(systemName: "menubar.arrow.down.rectangle")
+                    }),
+                trailing:
+                    NavigationLink(
+                    destination: AudioScreen(),
+                    label: {
+                        //cambiar imagen
+                        Image(systemName: "speaker.fill")
+                    })
             )
             .background(Color.secondary)
             
