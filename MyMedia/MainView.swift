@@ -36,6 +36,8 @@ struct MainView: View {
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)
                         .padding(.top)
+                        
+                        
                     }
                     VStack{
                         //temperatura
@@ -47,11 +49,12 @@ struct MainView: View {
                     
                 })
                 ZStack{
+                    
                     GeometryReader{ gr in
                         VStack{
                             Spacer()
                             RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.secondary)
+                                .fill(Color.black)
                                 .frame(height: gr.size.height * 0.6)
                                 .offset(y :40)
                             
@@ -59,6 +62,7 @@ struct MainView: View {
                         
                         
                     }
+ 
                     VStack(){
                         //reloj
                         //temperatura
@@ -71,16 +75,15 @@ struct MainView: View {
                                     Image("waze")
                                         .resizable()
                                         .aspectRatio(contentMode:.fit)
-                                    Text("Waze")
+                                    Text("Waze").font(Font.custom("hind-light",size: 20))
                                     
                                     
                                 }
-                                .font(.title)
-                                .frame(width: 150, height: 100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                 .padding()
                                 .foregroundColor(.white)
-                                .background(LinearGradient(gradient: Gradient(colors: [Color.white, Color.blue]), startPoint: .top, endPoint: .bottom))
-                                .cornerRadius(10)
+                                .background(Color("wazeColor"))
+                                .cornerRadius(5)
                             }
                             Button(action:{
                                 //TODO ACTION
@@ -89,16 +92,16 @@ struct MainView: View {
                                     Image("spotify")
                                         .resizable()
                                         .aspectRatio(contentMode:.fit)
-                                    Text("Spotify")
+                                    Text("Spotify").font(Font.custom("hind-light",size: 20))
                                     
                                     
                                 }
-                                    .font(.title)
-                                    .frame(width: 150, height: 100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                    
+                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.green, Color.blue]), startPoint: .top, endPoint: .bottom))
-                                    .cornerRadius(10)
+                                    .background(Color("spotifyColor"))
+                                    .cornerRadius(5)
                             }
                         }
                         HStack{
@@ -108,16 +111,16 @@ struct MainView: View {
                                 Image("phone")
                                     .resizable()
                                     .aspectRatio(contentMode:.fit)
-                                Text("Teléfono")
+                                Text("Teléfono").font(Font.custom("hind-light",size: 20))
                                 
                                 
                             }
-                                    .font(.title)
-                                    .frame(width: 150, height: 100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                    
+                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.orange]), startPoint: .top, endPoint: .bottom))
-                                    .cornerRadius(10)
+                            .background(Color("orangeCustom"))
+                                    .cornerRadius(5)
                             }
                             .frame(height: nil)
                             Button(action:{
@@ -127,16 +130,16 @@ struct MainView: View {
                                    Image("radio")
                                        .resizable()
                                        .aspectRatio(contentMode:.fit)
-                                   Text("radio")
+                                   Text("Radio").font(Font.custom("hind-light",size: 20))
                                    
                                    
                                }
-                                    .font(.title)
-                                    .frame(width: 150, height: 100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                    
+                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
                                     .padding()
                                     .foregroundColor(.white)
-                                    .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.orange]), startPoint: .top, endPoint: .bottom))
-                                    .cornerRadius(10)
+                                    .background(Color("orangeCustom"))
+                                    .cornerRadius(5)
                             }
                         }
                     }
@@ -158,7 +161,10 @@ struct MainView: View {
                         Image(systemName: "speaker.fill")
                     })
             )
-            .background(Color.secondary)
+            .background(
+                Color.secondary
+            
+            )
             
         }
     }

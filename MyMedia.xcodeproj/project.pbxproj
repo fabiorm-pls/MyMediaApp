@@ -48,6 +48,7 @@
 		9A035C992726A281009C5020 /* MyMediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMediaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A035C9D2726A281009C5020 /* MyMediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMediaUITests.swift; sourceTree = "<group>"; };
 		9A035C9F2726A281009C5020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A1DA06C27352454002816A3 /* hind-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "hind-light.otf"; path = "../../../Downloads/hind/hind-light.otf"; sourceTree = "<group>"; };
 		9AB190C82733D1EC0076C92F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AB190CD2733D1FA0076C92F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AB190D12733DAFB0076C92F /* AudioScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScreen.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 				9AB190D62733DB9A0076C92F /* SettingsScreen.swift */,
 				9AB190C92733D1EC0076C92F /* Localizable.strings */,
 				9A035C842726A280009C5020 /* Assets.xcassets */,
+				9A1DA06C27352454002816A3 /* hind-light.otf */,
 				9A035C892726A280009C5020 /* Info.plist */,
 				9A035C862726A280009C5020 /* Preview Content */,
 				9AB190D12733DAFB0076C92F /* AudioScreen.swift */,
