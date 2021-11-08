@@ -9,15 +9,18 @@ import SwiftUI
 
 struct MainView: View {
     //menu
-
+    
     //inicializar timer
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     //current date y hora
     @State var currentDate: Date = Date()
     var dateFormatter: DateFormatter{
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        //formatter.dateStyle = .medium
+        formatter.dateFormat = "dd/MM"
         formatter.timeStyle = .short
+        formatter.amSymbol = ""
+        formatter.pmSymbol = ""
         return formatter
     }
     @State private var isActive : Bool = false
@@ -27,17 +30,18 @@ struct MainView: View {
                 
                 HStack{
                     VStack{
-                    Image(systemName: "clock.fill")
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        .padding()
-                    Text(dateFormatter.string(from:currentDate))
-                        .font(.system(size: 20, weight: .semibold, design: .rounded))
-                        .foregroundColor(.white)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.1)
-                        .padding(.top)
-                        
-                        
+                        Image(systemName: "clock.fill")
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .padding()
+                            //.background(Image ("road"))
+                            //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                            
+                        Text(dateFormatter.string(from:currentDate))
+                            .font(.system(size: 60, weight: .light, design:.rounded))
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .padding(.top)
                     }
                     VStack{
                         //temperatura
@@ -62,7 +66,7 @@ struct MainView: View {
                         
                         
                     }
- 
+                    
                     VStack(){
                         //reloj
                         //temperatura
@@ -96,12 +100,12 @@ struct MainView: View {
                                     
                                     
                                 }
-                                    
-                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color("spotifyColor"))
-                                    .cornerRadius(5)
+                                
+                                .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color("spotifyColor"))
+                                .cornerRadius(5)
                             }
                         }
                         HStack{
@@ -115,31 +119,31 @@ struct MainView: View {
                                 
                                 
                             }
-                                    
-                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
-                                    .padding()
-                                    .foregroundColor(.white)
+                            
+                            .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                            .padding()
+                            .foregroundColor(.white)
                             .background(Color("orangeCustom"))
-                                    .cornerRadius(5)
+                            .cornerRadius(5)
                             }
                             .frame(height: nil)
                             Button(action:{
                                 //TODO ACTION
                             }){
                                 VStack{
-                                   Image("radio")
-                                       .resizable()
-                                       .aspectRatio(contentMode:.fit)
-                                   Text("Radio").font(Font.custom("hind-light",size: 20))
-                                   
-                                   
-                               }
+                                    Image("radio")
+                                        .resizable()
+                                        .aspectRatio(contentMode:.fit)
+                                    Text("Radio").font(Font.custom("hind-light",size: 20))
                                     
-                                    .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(Color("orangeCustom"))
-                                    .cornerRadius(5)
+                                    
+                                }
+                                
+                                .frame(maxWidth: .infinity, maxHeight: 120/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center)
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color("orangeCustom"))
+                                .cornerRadius(5)
                             }
                         }
                     }
@@ -155,15 +159,15 @@ struct MainView: View {
                     }),
                 trailing:
                     NavigationLink(
-                    destination: AudioScreen(),
-                    label: {
-                        //cambiar imagen
-                        Image(systemName: "speaker.fill")
-                    })
+                        destination: AudioScreen(),
+                        label: {
+                            //cambiar imagen
+                            Image(systemName: "speaker.fill")
+                        })
             )
             .background(
                 Color.secondary
-            
+                
             )
             
         }
