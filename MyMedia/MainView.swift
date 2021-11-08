@@ -37,17 +37,16 @@ struct MainView: View {
                             //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                             
                         Text(dateFormatter.string(from:currentDate))
-                            .font(.system(size: 60, weight: .light, design:.rounded))
+                            .font(.system(size: 50, weight: .light, design:.rounded))
                             .foregroundColor(.white)
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                             .padding(.top)
                     }
                     VStack{
-                        //temperatura
+                        Text("Temperatura")
                     }
                 }
-                
                 .onReceive(timer, perform: { value in
                     currentDate = value
                     
@@ -166,7 +165,10 @@ struct MainView: View {
                         })
             )
             .background(
-                Color.secondary
+                Image("road")
+                    .resizable()
+                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    
                 
             )
             
