@@ -12,22 +12,29 @@ struct MainView: View {
     
     //inicializar timer
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
-    //current date y hora
+    //current hora
     @State var currentDate: Date = Date()
-    var dateFormatter: DateFormatter{
+    var timeFormatter: DateFormatter{
         let formatter = DateFormatter()
         //formatter.dateStyle = .medium
-        formatter.dateFormat = "dd/MM"
+        //formatter.dateFormat = " E, d MMM"
         formatter.timeStyle = .short
         formatter.amSymbol = ""
         formatter.pmSymbol = ""
         return formatter
     }
+    
+    var dateFormatter: DateFormatter{
+        let formato = DateFormatter()
+        formato.dateStyle = .medium
+        formato.dateFormat = " E, d MMM"
+        return formato
+    }
     @State private var isActive : Bool = false
     var body: some View {
         NavigationView{
             VStack{
-                
+               
                 HStack{
                     VStack{
                         Image(systemName: "clock.fill")
@@ -36,12 +43,20 @@ struct MainView: View {
                             //.background(Image ("road"))
                             //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                             
-                        Text(dateFormatter.string(from:currentDate))
+                        Text(timeFormatter.string(from:currentDate))
                             .font(.system(size: 50, weight: .light, design:.rounded))
                             .foregroundColor(.white)
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
-                            .padding(.top)
+                            .padding(.leading)
+                            
+                        
+                        Text(dateFormatter.string(from:currentDate))
+                            .font(.system(size: 20, weight: .light, design:.rounded))
+                            .foregroundColor(.white)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .padding(.leading)
                     }
                     VStack{
                         Text("Temperatura")
@@ -167,7 +182,7 @@ struct MainView: View {
             .background(
                 Image("road")
                     .resizable()
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                    //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     
                 
             )
