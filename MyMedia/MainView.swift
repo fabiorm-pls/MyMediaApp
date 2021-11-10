@@ -23,11 +23,11 @@ struct MainView: View {
         formatter.pmSymbol = ""
         return formatter
     }
-    
+    //date
     var dateFormatter: DateFormatter{
         let formato = DateFormatter()
         formato.dateStyle = .medium
-        formato.dateFormat = " E, d MMM"
+        formato.dateFormat = " EEEE, d MMM"
         return formato
     }
     @State private var isActive : Bool = false
@@ -37,11 +37,13 @@ struct MainView: View {
                
                 HStack{
                     VStack{
-                        Image(systemName: "clock.fill")
-                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        Image(systemName: "clock")
+                            //.foregroundColor(.blue)
+                            .font(.system(size: 20, weight: .semibold))
                             .padding()
-                            //.background(Image ("road"))
-                            //.aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                            .imageScale(.large)
+                            
+                            
                             
                         Text(timeFormatter.string(from:currentDate))
                             .font(.system(size: 50, weight: .light, design:.rounded))
@@ -49,6 +51,7 @@ struct MainView: View {
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                             .padding(.leading)
+                            
                             
                         
                         Text(dateFormatter.string(from:currentDate))
@@ -59,7 +62,7 @@ struct MainView: View {
                             .padding(.leading)
                     }
                     VStack{
-                        Text("Temperatura")
+                        //Text("Temperatura")
                     }
                 }
                 .onReceive(timer, perform: { value in
@@ -73,7 +76,7 @@ struct MainView: View {
                             Spacer()
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.black)
-                                .frame(height: gr.size.height * 0.6)
+                                .frame(height: gr.size.height * 0.8)
                                 .offset(y :40)
                             
                         }
@@ -169,14 +172,15 @@ struct MainView: View {
                 leading: NavigationLink(
                     destination: SettingsScreen(),
                     label: {
-                        Image(systemName: "menubar.arrow.down.rectangle")
+                        Image( "menu")
+                            .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                     }),
                 trailing:
                     NavigationLink(
                         destination: AudioScreen(),
                         label: {
                             //cambiar imagen
-                            Image(systemName: "speaker.fill")
+                            Image("micro")
                         })
             )
             .background(
